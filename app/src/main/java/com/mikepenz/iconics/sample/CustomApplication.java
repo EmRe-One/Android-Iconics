@@ -1,13 +1,13 @@
 package com.mikepenz.iconics.sample;
 
 
-import android.app.Application;
-
 import com.mikepenz.iconics.Iconics;
 import com.mikepenz.iconics.sample.typeface.CustomFont;
 import com.mikepenz.iconics.typeface.GenericFont;
 
-public class CustomApplication extends Application {
+import androidx.multidex.MultiDexApplication;
+
+public class CustomApplication extends MultiDexApplication {
 
     @Override
     public void onCreate() {
@@ -22,6 +22,9 @@ public class CustomApplication extends Application {
         gf2.registerIcon("up", '\ue801');
         gf2.registerIcon("down", '\ue802');
         Iconics.registerFont(gf2);
+
+        //Enable the below line to not allow the automatic font detection via the included string fields. This helps to increase performance by a tiny bit.
+        //Iconics.markInitDone();
     }
 
 }
